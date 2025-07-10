@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <title>
-      {% block title %}Lymphoma Cancer Prediction{% endblock title %}
+      {% block title %}Cervical Cancer Prediction{% endblock title %}
     </title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,7 +22,7 @@
 
     <center style="font-family: Kanit, sans-serif; margin-top: 50px">
       <h1>
-        <div>การตรวจวินิจฉัยมะเร็งต่อมน้ำเหลือง</div>
+        <div>การตรวจวินิจฉัยมะเร็งปากมดลูก</div>
         <button
           type="button"
           onclick="init()"
@@ -36,9 +36,17 @@
         <div id="label-container"></div>
       </h1>
       <br />
-      <h3>lymph_cll เป็นมะเร็งต่อมน้ำเหลืองชนิด lymph_cll</h3>
-      <h3>lymph_fl เป็นมะเร็งต่อมน้ำเหลือกชนิด lymph_fl</h3>
-      <h3>lymph_mcl เป็นมะเร็งต่อมน้ำเหลืองชนิด lymph_mcl</h3>
+      <h3>cervix_dyk มะเร็งปากมดลูกชนิดการเจริญเติบโตของเซลล์ผิดปกติ</h3>
+      <h3>
+        cervix_koc
+        มะเร็งปากมดลูกชนิดเซลล์ที่แสดงการเปลี่ยนแปลงจากการติดเชื้อไวรัส
+      </h3>
+      <h3>
+        cervix_mep
+        มะเร็งปากมดลูกชนิดเซลล์เปลี่ยนจากประเภทหนึ่งไปเป็นอีกประเภทหนึ่งก่อนเป็นมะเร็ง
+      </h3>
+      <h3>cervix_pab มะเร็งปากมดลูกชนิดเซลล์สความัสที่ยังไม่เจริญเต็มที่</h3>
+      <h3>cervix_sfi มะเร็งปากมดลูกชนิดเซลล์สความัสที่โตเต็มที่มากขึ้น</h3>
     </center>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
@@ -48,7 +56,7 @@
 
       // the link to your model provided by Teachable Machine export panel
       // const URL = "https://teachablemachine.withgoogle.com/models/EGW6IPPx8/";
-      const URL = "https://teachablemachine.withgoogle.com/models/aVIJZ1wiR/";
+      const URL = "https://teachablemachine.withgoogle.com/models/PmvprjhHJ/";
 
       let model, webcam, labelContainer, maxPredictions;
 

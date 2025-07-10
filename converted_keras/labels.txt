@@ -1,3 +1,0 @@
-0 lung_aca
-1 lung_normal
-2 lung_scc

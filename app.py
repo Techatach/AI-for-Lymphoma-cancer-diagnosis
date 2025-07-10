@@ -19,7 +19,7 @@ from tensorflow.keras.preprocessing import image
 
 app = Flask(__name__)
 # model = load_model('keras_model.h5')
-model = load_model('keras_model.h5')
+model = load_model(r'D:\SP_PublicAd\SP_2567\Cervix cancerTCI\AI-cervix-cancer\modelAI\keras_model.h5')
 #model = load_model('SkinCancerFlask/efficientnetb3-Skin Cancer-69.39.h5')
 # model = load_model(r'D:\SP_PublicAd\SP_2_2566\BreastCancer\BreastCancerCode\BreastCancerFlask\keras_model.h5')
 target_img = os.path.join(os.getcwd() , 'static/images')
@@ -61,11 +61,15 @@ def predict():
             class_prediction=model.predict(img) 
             classes_x=np.argmax(class_prediction,axis=1)
             if classes_x == 0:
-              cancer = "lung_aca"
+                cancer = "cervix_dyk"
             elif classes_x == 1:
-              cancer = "lung_bnt"
+                cancer = "cervix_koc"
+            elif classes_x == 2:
+                cancer = "cervix_mep"
+            elif classes_x == 3:
+                cancer = "cervix_pab"
             else:
-              cancer = "lung_scc"
+                cancer = "cervix_sfi"
             return render_template('predict.html', cancer = cancer, prob=class_prediction, user_image = file_path)
         else:
             return "Unable to read the file. Please check file extension"
@@ -73,8 +77,9 @@ def predict():
 ####### Webcam
 @app.route("/webcam")
 def webcam():
+    
     return render_template("webcam.html")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
     app.run(debug=True,use_reloader=False, port=5000)

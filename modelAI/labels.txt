@@ -1,0 +1,5 @@
+0 cervix_dyk
+1 cervix_koc
+2 cervix_mep
+3 cervix_pab
+4 cervix_sfi
